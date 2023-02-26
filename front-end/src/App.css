@@ -1,5 +1,6 @@
 *{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
 }
 body{
     color:rgb(45, 39, 34) ;
@@ -12,7 +13,7 @@ main{
 header{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 45px;
+    margin-bottom: 55px;
 }
 header a{
     text-decoration: none;
@@ -36,8 +37,56 @@ div.post{
     display: grid;
     grid-template-columns: 0.9fr 1.1fr ;
     gap: 20px;
+    margin-bottom: 30px;
 }
 div.post div.text h2{
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
+}
+
+div.post p.info{
+    margin: 7px 0;
+    font-size: .7rem;
+    font-weight: bold;
+    display: flex;
+    gap: 7px;
+}
+
+div.post p.info a.auteur{
+    color: rgb(0, 0, 0);
+}
+
+div.post p.resume{
+    margin: 8px 0;
+    line-height: 1.4rem;
+}
+
+form.login , form.register{
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+input{
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    border: 2px;
+    padding:10px;
+    background-color: #d4d2d2;
+    border-radius: 10px;
+}
+button{
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px 0;
+    border-radius: 5px;
+    background-color:rgba(65, 0, 145, 0.527) ;
+    border: 0;
+    color: #fff;
+}
+
+form h1{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;   
 }

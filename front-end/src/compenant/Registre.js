@@ -5,14 +5,16 @@ function Registre() {
     const [password,setPassword]=useState("");
     async function regist(e){
         e.preventDefault();
-        try{
-          await fetch('http://localhost:4000/register',{
+  
+        const res=  await fetch('http://localhost:4000/register',{
             method:'POST',
             body:JSON.stringify({username,password}),
             headers:{'Content-Type':'application/json'}
           })
-        }catch(e){
-          alert("un fausse d'enregistrement");
+        if(res.status===200){
+          alert("registration successful")
+        }else{
+          alert('user is alredy exist');
         }
     }
   return (

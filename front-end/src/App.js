@@ -5,17 +5,21 @@ import Post from './compenant/Post';
 import Layout from './compenant/Layout';
 import Login from './compenant/Login';
 import Registre from './compenant/Registre';
-
+import {UserContextProvide} from './Usercontext'
 
 function App() {
   return (
-    <Routes>
+    <UserContextProvide>
+      <Routes>
       <Route path='/' element={<Layout/>}>
         <Route index element={<Post/>}/>
         <Route path={'/login'} element={<Login/>}/>
         <Route path={'/registre'} element={<Registre/>}/>
+        <Route/>
       </Route>
     </Routes>
+    </UserContextProvide>
+    
   );
 }
 

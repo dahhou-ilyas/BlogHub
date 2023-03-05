@@ -1,11 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import {Navigate} from 'react-router-dom';
+import { Usercontext } from '../Usercontext';
+
+
+
 
 function Login() {
   
   const [username,setUsername]=useState('');
   const [password,setPassword]=useState('');
   const [redirect,setRedirect]=useState(false)
+  const {setUserInfo}=useContext(Usercontext)
+
   async function log(e){
     e.preventDefault();
     const res=await fetch('http://localhost:4000/login',{
@@ -15,7 +21,11 @@ function Login() {
       credentials:'include',
     })
     if(res.ok){
-      setRedirect(true)
+      res.json().then((userInfo)=>{
+        setUserInfo(userInfo)
+        setRedirect(true)
+      })
+      
     }else{
       alert("not defined")
     }

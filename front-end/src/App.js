@@ -6,6 +6,7 @@ import Layout from './compenant/Layout';
 import Login from './compenant/Login';
 import Registre from './compenant/Registre';
 import {UserContextProvide} from './Usercontext'
+import CreerPost from './compenant/CreerPost';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Route index element={<Post/>}/>
         <Route path={'/login'} element={<Login/>}/>
         <Route path={'/registre'} element={<Registre/>}/>
-        <Route/>
+        <Route path={'/create'} element={<CreerPost/>} />
       </Route>
     </Routes>
     </UserContextProvide>

@@ -86,7 +86,11 @@ button{
     color: #fff;
 }
 
-form h1{
+form.login h1, form.register h1{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center;   
+}
+
+button.Post{
+    margin-top: 40px;
 }

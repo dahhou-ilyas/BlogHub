@@ -22,7 +22,7 @@ function CreerPostPage() {
       'list', 'bullet', 'indent',
       'link', 'image'
     ]
-    function creerNouveauPost(e){
+    async function creerNouveauPost(e){
       const data=new FormData();
       data.set('title',title)
       data.set('summary',summary)
@@ -30,7 +30,7 @@ function CreerPostPage() {
       data.set('file',file[0])
     //console.log(file[0]);
       e.preventDefault();
-      fetch('http://localhost:4000/creerpost',{
+      const response=await fetch('http://localhost:4000/creerpost',{
         method: 'POST',
         body:data,
       })

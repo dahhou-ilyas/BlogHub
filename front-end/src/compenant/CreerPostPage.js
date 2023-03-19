@@ -28,6 +28,7 @@ function CreerPostPage() {
       data.set('summary',summary)
       data.set('content',content)
       data.set('file',file[0])
+    //console.log(file[0]);
       e.preventDefault();
       fetch('http://localhost:4000/creerpost',{
         method: 'POST',
@@ -41,7 +42,7 @@ function CreerPostPage() {
           value={title} onChange={e=>setTitle(e.target.value)} />
         <input type="summary" placeholder='Summary' 
           value={summary} onChange={e=>setSummary(e.target.value)}/>
-        <input type="file" value={file} onChange={e=>setFile(e.target.value)} />
+        <input type="file" onChange={e=>setFile(e.target.files)} />
         <ReactQuill value={content} 
           onChange={newValue=>setContent(newValue)} 
           modules={modules} 

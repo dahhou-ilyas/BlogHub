@@ -5,6 +5,8 @@ const mongoose=require('mongoose');
 const user=require('./models/user');
 var bcrypt = require('bcryptjs');
 const jwt=require('jsonwebtoken');
+const multer=require('multer')
+const upload=multer({dest:'telecharge/'})
 const cookieParser=require('cookie-parser');
 
 require('dotenv').config({path: __dirname + '/.env'})
@@ -69,6 +71,8 @@ app.post('/logout',(req,res)=>{
     res.cookie('token','').json('ok');
 })
 
-
+app.post('/creerpost',upload.single('file'),(req,res)=>{
+    res.json(req.file)
+})
 
 app.listen(4000)

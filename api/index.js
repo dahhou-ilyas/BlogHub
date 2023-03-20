@@ -76,21 +76,29 @@ app.post('/logout',(req,res)=>{
 
 app.post('/creerpost',upload.single('file'),async (req,res)=>{
     const {originalname,path}=req.file;
+
+    // get extension de fichier
     const part=originalname.split(".");
     const ext=part[part.length-1]
+
+    //ajouter extension de fichier
     const newpath=path+'.'+ext
     fs.renameSync(path,newpath)
 
     const {title,summary,content}=req.body
+    // add post to database
     const postDocument=await PostModel.create({
         titre:title,
         resume:summary,
         content:content,
         image:newpath,
     })
-    
-    
     res.json(postDocument)
 })
+
+app.get('/post',async (req,res)=>{
+    res.json(await PostModel.find())
+})
+
 
 app.listen(4000)

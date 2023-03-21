@@ -36,6 +36,7 @@ function CreerPostPage() {
       const response=await fetch('http://localhost:4000/creerpost',{
         method: 'POST',
         body:data,
+        credentials:'include',
       })
       if(response.ok){
         setRedirect(true)

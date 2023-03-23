@@ -21,11 +21,12 @@ const salt=bcrypt.genSaltSync(10);
 app.use(cors({credentials:true,origin:'http://localhost:3000'}));
 app.use(express.json());
 app.use(cookieParser());
+app.use('/telecharge',express.static(__dirname+'/telecharge'))
 
 
 
 mongoose.connect(process.env.LOCALHOST).then(e=>console.log("succes")).catch(err=>console.log("err"))
-// in 1:04:17 in vedeo
+
 app.post('/register',async (req,res)=>{
     const {username,password}=req.body;
     try{
@@ -85,19 +86,36 @@ app.post('/creerpost',upload.single('file'),async (req,res)=>{
     const newpath=path+'.'+ext
     fs.renameSync(path,newpath)
 
-    const {title,summary,content}=req.body
+    const {token}=req.cookies;
+    jwt.verify(token,process.env.KEY,{},async (err,info)=>{
+        if(err) throw err;
+        
+        const {title,summary,content}=req.body
     // add post to database
     const postDocument=await PostModel.create({
         titre:title,
         resume:summary,
         content:content,
         image:newpath,
+        author:info.id,
     })
-    res.json(postDocument)
+        res.json(postDocument)
+    })
+
+    
 })
 
 app.get('/post',async (req,res)=>{
-    res.json(await PostModel.find())
+    res.json(await PostModel.find().populate("author",['username'])
+    .sort({createdAt:-1}).limit(25))
+})
+
+
+app.get('/post/:id',async (req,res)=>{
+    const {id}=req.params
+    const singlepost=await PostModel.findById(id).populate('author')
+    res.json(singlepost)
+
 })
 
 

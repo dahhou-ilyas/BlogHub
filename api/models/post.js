@@ -5,6 +5,9 @@ const PsotSchema=new mongoose.Schema({
     resume:String,
     content:String,
     image:String,
+    author:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"user",},
 },{
     timestamps:true,
 })

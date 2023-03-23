@@ -42,7 +42,13 @@ div.post{
 div.post div.text h2{
     margin: 0;
     font-size: 1.7rem;
+    
 }
+div.post div.text a{
+    text-decoration: none;
+    color: inherit;
+}
+
 
 div.post p.info{
     margin: 7px 0;
@@ -94,3 +100,21 @@ form.login h1, form.register h1{
 button.Post{
     margin-top: 40px;
 }
+
+div.post-page div.image{
+   max-height: 290px;
+   border: red solid 7px;
+   display: flex;
+    justify-content: center;
+    align-items: center;
+   overflow: hidden;
+}
+
+div.post-page div.image img{
+   object-fit: cover;
+    object-position: center center;
+ }
+ 
+ div.post-page h1{
+    text-align: center;
+ }

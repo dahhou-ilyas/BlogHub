@@ -13,7 +13,7 @@
 
 ## Environment Variables
 
-To run this project, you will need to add the following environment variables to your .env file
+To run this project, you will need to add the following environment variables in (api) directory to your .env file
 
 `LOCALHOST  --> "connection with database mongodb"`
 

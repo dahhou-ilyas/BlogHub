@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 import { Navigate } from 'react-router-dom';
-import Post from './Post';
 function CreerPostPage() {
     const [title,setTitle]=useState('');
     const [summary,setSummary]=useState('');

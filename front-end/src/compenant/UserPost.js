@@ -2,7 +2,7 @@ import React from 'react'
 import {formatISO9075} from 'date-fns'
 import { Link } from 'react-router-dom'
 
-function UserPost({_id,titre,resume,content,image,createdAt,author}) {
+function UserPost({_id,titre,resume,image,createdAt,author}) {
   return (
     <div className="post">
         <div className='image'>

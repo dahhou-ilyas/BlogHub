@@ -6,15 +6,16 @@ function Header() {
   const {setUserInfo,userInfo}=useContext(Usercontext)
 
 
-   useEffect(()=>{
-      fetch('http://localhost:4000/profile',{
-        credentials:'include',
-      }).then((respon)=>{
-        respon.json().then(dataUser=>{
-          setUserInfo(dataUser);
-        })  
-      })
-   },[])
+  useEffect(() => {
+      fetch('http://localhost:4000/profile', {
+        credentials: 'include',
+       }).then(response => {
+        response.json().then(userInfo => {
+          setUserInfo(userInfo);
+        });
+      });
+  }, []);
+  console.log(userInfo);
   
    function logout(){
     fetch('http://localhost:4000/logout',{

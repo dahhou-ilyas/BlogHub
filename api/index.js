@@ -43,7 +43,6 @@ app.post('/register',async (req,res)=>{
 app.post('/login',async (req,res)=>{
     const {username,password}=req.body;
     const userInfo=await user.findOne({username:username});
-    console.log(userInfo);
     console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
     const passOk=bcrypt.compareSync(password,userInfo.password)
     console.log(passOk);
@@ -51,7 +50,6 @@ app.post('/login',async (req,res)=>{
         //login  
         jwt.sign({username,id:userInfo._id},process.env.KEY,(err,token)=>{
             if(err) throw err;
-            console.log(token);
             res.cookie('token',token).json({
                 id:userInfo._id,
                 username,
@@ -63,12 +61,16 @@ app.post('/login',async (req,res)=>{
     }
 })
 app.get('/profile',(req,res)=>{
+    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     const {token}=req.cookies;
+    if(!token){
+        res.json(false)
+    }
     jwt.verify(token,process.env.KEY,{},(err,info)=>{
         if(err) throw err;
-        console.log(info);
         res.json(info)
     })
+
 })
 
 app.post('/logout',(req,res)=>{

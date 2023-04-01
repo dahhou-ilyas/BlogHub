@@ -21,12 +21,6 @@ function EditPost() {
           ['clean']
         ],
       }
-      const formats = [
-        'header',
-        'bold', 'italic', 'underline', 'strike', 'blockquote',
-        'list', 'bullet', 'indent',
-        'link', 'image'
-      ]
 
       useEffect(()=>{
         fetch('http://localhost:4000/post/'+id)
@@ -73,9 +67,9 @@ function EditPost() {
           <input type="file" onChange={e=>setFile(e.target.files)} />
           <ReactQuill value={content} 
             onChange={newValue=>setContent(newValue)} 
-            modules={modules} 
-            theme={'snow'}
-            formats={formats} />
+            modules={modules}
+            theme='snow' />
+        
           <button className='Post'>Update post</button>
       </form>
     )

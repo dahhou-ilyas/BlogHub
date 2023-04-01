@@ -107,6 +107,39 @@ app.post('/creerpost',upload.single('file'),async (req,res)=>{
     
 })
 
+app.put('/post',upload.single('file'),async (req,res)=>{
+    let newpath=null;
+   if(req.file){
+    const {originalname,path}=req.file;
+
+    // get extension de fichier
+    const part=originalname.split(".");
+    const ext=part[part.length-1]
+
+    //ajouter extension de fichier
+    newpath=path+'.'+ext
+    fs.renameSync(path,newpath)
+   }
+   const {id,title,resume,content}=req.body
+   const {token}=req.cookies;
+   const postDoc=await PostModel.findById(id)
+
+    jwt.verify(token,process.env.KEY,{},async (err,info)=>{
+        if(err) throw err;
+        const isAuthor=JSON.stringify(postDoc.author)===JSON.stringify(info.id)
+        if(!isAuthor) {
+            return res.status(400).json('you are not the author')
+        }
+        await postDoc.update({titre:title,resume:resume,content:content,image:newpath ? newpath:postDoc.image})
+        res.json(postDoc)
+    })
+
+})
+
+        
+    
+
+
 app.get('/post',async (req,res)=>{
     res.json(await PostModel.find().populate("author",['username'])
     .sort({createdAt:-1}).limit(25))

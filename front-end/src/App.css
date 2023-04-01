@@ -14,10 +14,16 @@ header{
     display: flex;
     justify-content: space-between;
     margin-bottom: 55px;
+    color: #fff;
+    background-color: #333;
+    border-radius: 10px;
+    padding: 10px;
+    
 }
 header a{
     text-decoration: none;
     color: inherit;
+    padding-left: 10px;
 }
 header a.logo{
     font-weight:bold;
@@ -27,6 +33,8 @@ header nav{
     display: flex;
     align-items: center;
     gap: 17px;
+    padding-right: 20px;
+    
 }
 
 
@@ -116,6 +124,11 @@ div.post-page div.image{
     align-items: center;
    overflow: hidden;
 }
+div.post-page{
+    border: 0;
+    border-radius: 20px;
+    background-color: #aaaaaa41;
+}
 
 div.post-page div.image img{
    object-fit: cover;
@@ -148,4 +161,19 @@ div.post-page div.image img{
 
  div.post-page div.contente p{
     line-height: 1.6rem;
+  }
+
+  div.edit-row{
+    margin-bottom: 10px;
+    text-align: center;
+   
+  }
+
+  div.post-page a.edit-btn{
+    color: #fff;
+    background-color: #5d0c5996;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+    
   }

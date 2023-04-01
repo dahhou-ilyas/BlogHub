@@ -8,6 +8,7 @@ import Registre from './compenant/Registre';
 import {UserContextProvide} from './Usercontext'
 import CreerPostPage from './compenant/CreerPostPage';
 import PostPages from './compenant/PostPages';
+import EditPost from './compenant/EditPost';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path={'/registre'} element={<Registre/>}/>
         <Route path={'/create'} element={<CreerPostPage/>} />
         <Route path={'/post/:id'} element={<PostPages/>}/>
+        <Route path={'/edit/:id'} element={<EditPost/>}></Route>
       </Route>
     </Routes>
     </UserContextProvide>

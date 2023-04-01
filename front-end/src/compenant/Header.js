@@ -24,8 +24,9 @@ function Header() {
     })  
     setUserInfo(null)
    }
-
+   console.log(userInfo);
    const username=userInfo;
+
   return (
     <header>
         <Link to="/" className="logo">MyBlog</Link>

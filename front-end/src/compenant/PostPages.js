@@ -11,7 +11,7 @@ function PostPages() {
  
     const {id}=useParams();
     useEffect(()=>{
-        fetch(`http://localhost:4000/post/${id}`)
+        fetch(`https://bbblllllog.onrender.com/post/${id}`)
         .then(response=>{
             response.json().then(postInfo=>{
               setPostInfo(postInfo)
@@ -30,7 +30,7 @@ function PostPages() {
         </div>
       )}
         <div className='image'>
-          <img src={`http://localhost:4000/${postInfo.image}`}/>
+          <img src={`https://bbblllllog.onrender.com/${postInfo.image}`}/>
         </div>
         
         <div className='contente' dangerouslySetInnerHTML={{__html:postInfo.content}}/>

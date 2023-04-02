@@ -5,7 +5,7 @@ function Post() {
 
   const [posts,setPosts]=useState([])
   useEffect(()=>{
-    fetch('http://localhost:4000/post').then(resp=>{
+    fetch('https://bbblllllog.onrender.com/post').then(resp=>{
       resp.json().then(posts=>{
         setPosts(posts)
       });

@@ -23,7 +23,7 @@ function EditPost() {
       }
 
       useEffect(()=>{
-        fetch('http://localhost:4000/post/'+id)
+        fetch('https://bbblllllog.onrender.com/post/'+id)
         .then(response => {
             response.json().then(postInfo =>{
                 setTitle(postInfo.titre)
@@ -43,7 +43,7 @@ function EditPost() {
       data.set('file',file[0])
       
 
-        const response=await fetch('http://localhost:4000/post',{
+        const response=await fetch('https://bbblllllog.onrender.com/post',{
             method:'PUT',
             body:data,
             credentials:'include'

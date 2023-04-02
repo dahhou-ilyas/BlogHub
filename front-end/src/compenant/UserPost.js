@@ -7,7 +7,7 @@ function UserPost({_id,titre,resume,image,createdAt,author}) {
     <div className="post">
         <div className='image'>
           <Link to={`post/${_id}`}>
-           <img src={'http://localhost:4000/'+image} alt=''/>
+           <img src={'https://bbblllllog.onrender.com/'+image} alt=''/>
            </Link>
         </div>
         <div className='text'>

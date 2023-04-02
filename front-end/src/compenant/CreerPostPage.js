@@ -32,7 +32,7 @@ function CreerPostPage() {
       data.set('file',file[0])
     //console.log(file[0]);
       e.preventDefault();
-      const response=await fetch('http://localhost:4000/creerpost',{
+      const response=await fetch('https://bbblllllog.onrender.com/creerpost',{
         method: 'POST',
         body:data,
         credentials:'include',

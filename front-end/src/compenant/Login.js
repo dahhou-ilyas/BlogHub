@@ -14,7 +14,7 @@ function Login() {
 
   async function log(e){
     e.preventDefault();
-    const res=await fetch('http://localhost:4000/login',{
+    const res=await fetch('https://bbblllllog.onrender.com/login',{
       method:'POST',
       body:JSON.stringify({username,password}),
       headers:{'Content-Type':'application/json'},

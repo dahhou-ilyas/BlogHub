@@ -138,7 +138,7 @@ app.put('/post',upload.single('file'),async (req,res)=>{
 })
 
         
-    
+console.log("ilyas");
 
 
 app.get('/post',async (req,res)=>{

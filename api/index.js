@@ -46,11 +46,12 @@ app.post('/login',async (req,res)=>{
     console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
     const passOk=bcrypt.compareSync(password,userInfo.password)
     console.log(passOk);
+    const option={secure:true,sameSite:true}
     if(passOk){
         //login  
         jwt.sign({username,id:userInfo._id},process.env.KEY,(err,token)=>{
             if(err) throw err;
-            res.cookie('token',token).json({
+            res.cookie('token',token,option).json({
                 id:userInfo._id,
                 username,
             })
